@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/ai/chat", "destination": "/api/ai/chat" },
+    { "source": "/api/ai/drug-check", "destination": "/api/ai/drug-check" },
+    { "source": "/api/email/send", "destination": "/api/email/send" },
+    { "source": "/api/health", "destination": "/api/health" },
+    { "source": "/api/auth/login", "destination": "/api/auth/login" },
+    { "source": "/api/auth/register", "destination": "/api/auth/register" },
+    { "source": "/api/auth/me", "destination": "/api/auth/me" },
+    { "source": "/api/prescriptions", "destination": "/api/prescriptions" },
+    { "source": "/api/prescriptions/verify/:code", "destination": "/api/prescriptions/verify/:code" },
+    { "source": "/api/prescriptions/fill/:code", "destination": "/api/prescriptions/fill/:code" },
+    { "source": "/api/pharmacies", "destination": "/api/pharmacies" },
+    { "source": "/api/pharmacy/:id/stats", "destination": "/api/pharmacy/:id/stats" },
+    { "source": "/api/admin/overview", "destination": "/api/admin/overview" },
+    { "source": "/api/appointments", "destination": "/api/appointments" },
+    { "source": "/api/whatsapp/webhook", "destination": "/api/whatsapp/webhook" },
+    { "source": "/api/whatsapp/test", "destination": "/api/whatsapp/test" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS,PUT,DELETE" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type,Authorization" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

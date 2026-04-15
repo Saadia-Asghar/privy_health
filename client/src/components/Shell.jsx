@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { AppCtx } from '../App.jsx'
 import s from './Shell.module.css'
+import { marketingUrl } from '../lib/publicSite.js'
+import { getAuthSession } from '../lib/auth.js'
 
 const publicNav = [
   { to: '/', label: 'Home', exact: true },
@@ -36,11 +38,31 @@ function Badge({ text, color }) {
 }
 
 export default function Shell({ children }) {
-  const { dark, setDark, wallet, setWallet, mode, setMode, lang, setLang } = useContext(AppCtx)
+  const { dark, setDark, wallet, walletShort, mode, setMode, lang, setLang, connectWallet, connecting, walletError } =
+    useContext(AppCtx)
   const navigate = useNavigate()
+  const demoEnv = import.meta.env.VITE_DEMO_MODE === '1'
+  const mkt = marketingUrl()
+  const role = getAuthSession()?.user?.role || null
+  const canDoctor = role === 'doctor' || role === 'admin'
+  const canPharmacy = role === 'pharmacy' || role === 'admin'
+  const canAdmin = role === 'admin'
 
-  function connectWallet() {
-    setWallet(wallet ? null : '0x1a2b...3c4d')
+  function GuardedNav({ to, label, allowed, end = false, badge = null }) {
+    if (!allowed) {
+      return (
+        <button type="button" className={`${s.navItem} ${s.navItemDisabled}`} title="Sign in with required role in page panel">
+          <span className={s.navLabel}>{label}</span>
+          <LockIcon />
+        </button>
+      )
+    }
+    return (
+      <NavLink to={to} end={end} className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
+        <span className={s.navLabel}>{label}</span>
+        {badge}
+      </NavLink>
+    )
   }
 
   return (
@@ -56,7 +78,7 @@ export default function Shell({ children }) {
             </div>
             <div>
               <div className={s.logoName}>PrivyHealth</div>
-              <div className={s.logoSub}>Pakistan · Web3</div>
+              <div className={s.logoSub}>Pakistan · WireFluid</div>
             </div>
           </div>
         </div>
@@ -96,15 +118,79 @@ export default function Shell({ children }) {
             {dark ? '☀' : '🌙'}
           </button>
 
-          <button className={s.connectBtn} onClick={connectWallet}>
-            {wallet ? (
-              <><span className={s.connectedDot} />{wallet}</>
+          <button
+            className={s.connectBtn}
+            onClick={() => connectWallet()}
+            disabled={connecting}
+            title={walletError || undefined}
+          >
+            {connecting ? (
+              <>Connecting…</>
+            ) : wallet ? (
+              <><span className={s.connectedDot} />{walletShort}</>
             ) : (
               <><WalletIcon /> Connect Wallet</>
             )}
           </button>
         </div>
       </header>
+      {walletError && (
+        <div
+          role="alert"
+          style={{
+            margin: '10px 16px 0',
+            background: '#fff7ed',
+            border: '1px solid #fdba74',
+            color: '#9a3412',
+            borderRadius: 8,
+            padding: '8px 12px',
+            fontSize: 12,
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: 10,
+            flexWrap: 'wrap',
+          }}
+        >
+          <span>Wallet connection issue: {walletError}</span>
+          <button
+            type="button"
+            className={s.smBtn}
+            onClick={() => navigate('/settings')}
+            style={{ padding: '3px 10px', fontSize: 11 }}
+          >
+            Open Settings
+          </button>
+        </div>
+      )}
+
+      {walletError && (
+        <div
+          role="alert"
+          style={{
+            margin: '10px 16px 0',
+            background: '#fff7ed',
+            border: '1px solid #fdba74',
+            color: '#9a3412',
+            borderRadius: 8,
+            padding: '8px 12px',
+            fontSize: 12,
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: 10,
+            flexWrap: 'wrap',
+          }}
+        >
+          <span>Wallet connection issue: {walletError}</span>
+          <button
+            type="button"
+            className={s.smBtn}
+            onClick={() => navigate('/settings')}
+            style={{ padding: '3px 10px', fontSize: 11 }}
+          >
+            Open Settings
+          </button>
+        </div>
+      )}
 
       <div className={s.body}>
         {/* Sidebar */}
@@ -141,25 +227,15 @@ export default function Shell({ children }) {
 
           <div className={s.navSection}>
             <div className={s.navSectionLabel}>PROVIDER</div>
-            <NavLink to="/doctor" end className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
-              <span className={s.navLabel}>Doctor Dashboard</span>
-            </NavLink>
-            <NavLink to="/doctor/write" className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
-              <span className={s.navLabel}>Write Prescription</span>
-            </NavLink>
-            <NavLink to="/pharmacy/verify" className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
-              <span className={s.navLabel}>Verify Prescription</span>
-            </NavLink>
-            <NavLink to="/pharmacy" end className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
-              <span className={s.navLabel}>Pharmacy Portal</span>
-            </NavLink>
+            <GuardedNav to="/doctor" end label="Doctor Dashboard" allowed={canDoctor} />
+            <GuardedNav to="/doctor/write" label="Write Prescription" allowed={canDoctor} />
+            <GuardedNav to="/pharmacy/verify" label="Verify Prescription" allowed={canPharmacy} />
+            <GuardedNav to="/pharmacy" end label="Pharmacy Portal" allowed={canPharmacy} />
             <NavLink to="/pharmacy/register" className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
               <span className={s.navLabel}>Register Pharmacy</span>
               <Badge text="New" color="blue" />
             </NavLink>
-            <NavLink to="/admin" className={({ isActive }) => `${s.navItem} ${isActive ? s.navItemActive : ''}`}>
-              <span className={s.navLabel}>Admin</span>
-            </NavLink>
+            <GuardedNav to="/admin" label="Admin" allowed={canAdmin} />
           </div>
 
           <div className={s.navBottom}>
@@ -175,7 +251,32 @@ export default function Shell({ children }) {
 
         {/* Main content */}
         <main className={s.main}>
+          {(demoEnv || mode === 'demo') && (
+            <div className={s.demoBanner} role="note" aria-label="Demo mode banner">
+              <div className={s.demoBannerTitle}>Demo mode</div>
+              <div className={s.demoBannerText}>
+                Synthetic data only. Don’t enter real patient information. Some data may reset after cold starts.
+                <span className={s.demoBannerLinks}>
+                  <NavLink to="/privacy">Privacy</NavLink>
+                  <span>·</span>
+                  <NavLink to="/terms">Terms</NavLink>
+                  <span>·</span>
+                  <a href={mkt} target="_blank" rel="noreferrer">Marketing site</a>
+                </span>
+              </div>
+            </div>
+          )}
           {children}
+          <footer className={s.complianceStrip} role="contentinfo">
+            <div>
+              PrivyHealth is a demonstration product — not a medical device, not DRAP-registered software, and not for real clinical decisions or PHI.
+            </div>
+            <div className={s.complianceLinks}>
+              <NavLink to="/privacy">Privacy</NavLink>
+              <span>·</span>
+              <NavLink to="/terms">Terms</NavLink>
+            </div>
+          </footer>
         </main>
       </div>
 
@@ -184,14 +285,21 @@ export default function Shell({ children }) {
         {[
           { to: '/', icon: '🏠', label: 'Home', end: true },
           { to: '/drug-checker', icon: '💊', label: 'Drugs' },
-          { to: '/pharmacy/verify', icon: '✅', label: 'Verify' },
+          { to: '/pharmacy/verify', icon: '✅', label: 'Verify', enabled: canPharmacy },
           { to: '/patient', icon: '👤', label: 'Patient' },
           { to: '/settings', icon: '⚙', label: 'Settings' },
         ].map(item => (
-          <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => `${s.mobileNavItem} ${isActive ? s.mobileNavActive : ''}`}>
-            <span className={s.mobileNavIcon}>{item.icon}</span>
-            <span className={s.mobileNavLabel}>{item.label}</span>
-          </NavLink>
+          item.enabled === false ? (
+            <button key={item.to} type="button" className={`${s.mobileNavItem} ${s.mobileNavDisabled}`} title="Pharmacy login required">
+              <span className={s.mobileNavIcon}>{item.icon}</span>
+              <span className={s.mobileNavLabel}>{item.label}</span>
+            </button>
+          ) : (
+            <NavLink key={item.to} to={item.to} end={item.end} className={({ isActive }) => `${s.mobileNavItem} ${isActive ? s.mobileNavActive : ''}`}>
+              <span className={s.mobileNavIcon}>{item.icon}</span>
+              <span className={s.mobileNavLabel}>{item.label}</span>
+            </NavLink>
+          )
         ))}
       </nav>
     </div>

@@ -45,7 +45,7 @@
 
 .rxInfoGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
 .rxInfoItem { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 12px; }
-.rxInfoKey { font-size: 10px; fontWeight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+.rxInfoKey { font-size: 10px; font-weight: 700; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
 .rxInfoVal { font-size: 13px; font-weight: 600; color: var(--text); }
 
 .rxAllergy {

@@ -1,8 +1,9 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { AppCtx } from '../App.jsx'
 import s from './Page.module.css'
-
-const WHATSAPP_NUMBER = '+923001234567'
+import { api } from '../lib/api.js'
+import { supportEmail, whatsappNumber, whatsappWaLink } from '../lib/publicSite.js'
+import { clearAuthSession, getAuthSession, login } from '../lib/auth.js'
 
 function WhatsAppTester() {
   const [input, setInput] = useState('')
@@ -24,7 +25,7 @@ function WhatsAppTester() {
     setLoading(true)
 
     try {
-      const res = await fetch('/api/whatsapp/test', {
+      const res = await fetch(api('/api/whatsapp/test'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ from: 'demo-tester', message: userMsg }),
@@ -96,7 +97,12 @@ function WhatsAppTester() {
 }
 
 export default function SettingsPage() {
-  const { wallet, setWallet, dark, setDark, lang, setLang } = useContext(AppCtx)
+  const { wallet, connectWallet, disconnectWallet, connecting, dark, setDark, lang, setLang } = useContext(AppCtx)
+  const email = supportEmail()
+  const [authSession, setAuthSession] = useState(() => getAuthSession())
+  const [authEmail, setAuthEmail] = useState(() => getAuthSession()?.user?.email || 'doctor@local.demo')
+  const [authPassword, setAuthPassword] = useState('')
+  const [authError, setAuthError] = useState('')
   const [saved, setSaved] = useState(false)
   const [activeTab, setActiveTab] = useState('wallet')
 
@@ -106,12 +112,30 @@ export default function SettingsPage() {
   }
 
   function linkWhatsApp() {
-    const msg = encodeURIComponent(`join PrivyHealth — My account: ${wallet || 'not-connected'}`)
-    window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/\D/g, '')}?text=${msg}`, '_blank')
+    window.open(whatsappWaLink(`join PrivyHealth — My account: ${wallet || 'not-connected'}`), '_blank')
+  }
+
+  async function signInRole(e) {
+    e.preventDefault()
+    setAuthError('')
+    try {
+      const out = await login(authEmail, authPassword)
+      setAuthSession(out)
+      setAuthPassword('')
+    } catch (err) {
+      setAuthError(err.message || 'Sign in failed')
+    }
+  }
+
+  function signOutRole() {
+    clearAuthSession()
+    setAuthSession(null)
+    setAuthError('')
   }
 
   const tabs = [
     { id: 'wallet', label: '🔐 Account' },
+    { id: 'access', label: '🛂 Role Access' },
     { id: 'whatsapp', label: '💬 WhatsApp' },
     { id: 'network', label: '⛓ Network' },
     { id: 'appearance', label: '🎨 Appearance' },
@@ -152,7 +176,7 @@ export default function SettingsPage() {
                   <span style={{ fontFamily: 'var(--mono)', fontSize: 13, wordBreak: 'break-all' }}>{wallet}</span>
                 </div>
                 <div style={{ fontSize: 12, color: 'var(--text-3)', marginBottom: 14 }}>Connected to WireFluid Testnet</div>
-                <button className={s.smBtn} onClick={() => setWallet(null)}>Disconnect</button>
+                <button className={s.smBtn} onClick={() => disconnectWallet()}>Disconnect</button>
               </>
             ) : (
               <>
@@ -162,12 +186,59 @@ export default function SettingsPage() {
                 <button
                   className={s.btn}
                   style={{ width: 'auto', padding: '9px 20px' }}
-                  onClick={() => setWallet('0x' + Math.random().toString(16).slice(2, 42))}
+                  onClick={() => connectWallet()}
+                  disabled={connecting}
                 >
-                  Connect Account (Demo)
+                  {connecting ? 'Connecting…' : 'Connect wallet'}
                 </button>
               </>
             )}
+          </section>
+        )}
+
+        {activeTab === 'access' && (
+          <section className={s.card}>
+            <h3 style={{ fontWeight: 700, fontSize: 15, marginBottom: 12 }}>🛂 API Role Session</h3>
+            {authSession?.user ? (
+              <div style={{ background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8, padding: '12px 14px', marginBottom: 12 }}>
+                <div style={{ fontSize: 12, color: '#166534' }}>
+                  Signed in as <strong>{authSession.user.email}</strong> ({authSession.user.role})
+                </div>
+              </div>
+            ) : (
+              <p style={{ fontSize: 13, color: 'var(--text-2)', marginBottom: 12, lineHeight: 1.6 }}>
+                Sign in with your backend role account to unlock protected pages and actions. This controls Doctor, Pharmacy, and Admin access.
+              </p>
+            )}
+
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 10 }}>
+              <button className={s.smBtn} onClick={() => setAuthEmail('admin@local.demo')}>Use Admin</button>
+              <button className={s.smBtn} onClick={() => setAuthEmail('doctor@local.demo')}>Use Doctor</button>
+              <button className={s.smBtn} onClick={() => setAuthEmail('pharmacy@local.demo')}>Use Pharmacy</button>
+            </div>
+
+            <form onSubmit={signInRole} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: 8, alignItems: 'end' }}>
+              <div className={s.field}>
+                <label>Email</label>
+                <input value={authEmail} onChange={e => setAuthEmail(e.target.value)} />
+              </div>
+              <div className={s.field}>
+                <label>Password</label>
+                <input type="password" value={authPassword} onChange={e => setAuthPassword(e.target.value)} placeholder="Role account password" />
+              </div>
+              <button type="submit" className={s.smBtn} style={{ height: 36 }}>Sign in</button>
+              {authError && <div style={{ gridColumn: '1 / -1', fontSize: 12, color: '#dc2626' }}>{authError}</div>}
+            </form>
+
+            {authSession?.user && (
+              <div style={{ marginTop: 12 }}>
+                <button className={s.smBtn} onClick={signOutRole}>Sign out role session</button>
+              </div>
+            )}
+
+            <div style={{ marginTop: 12, fontSize: 12, color: 'var(--text-3)', lineHeight: 1.6 }}>
+              If strict role mode is enabled on backend, unauthenticated actions are blocked. Use this panel before opening protected routes.
+            </div>
           </section>
         )}
 
@@ -179,8 +250,8 @@ export default function SettingsPage() {
                 Pharmacists send <code style={{ fontFamily: 'var(--mono)', fontSize: 12, background: '#f0fdf4', padding: '1px 6px', borderRadius: 4, color: '#16a34a', border: '1px solid #86efac' }}>verify PK-XXXXXX</code> to get an instant prescription check — no app needed.
               </p>
               <div style={{ background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8, padding: '14px 16px', marginBottom: 14 }}>
-                <div style={{ fontSize: 12, fontWeight: 700, color: '#166534', marginBottom: 6 }}>BOT NUMBER (DEMO SANDBOX)</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 18, fontWeight: 700, color: '#0f5b34', letterSpacing: 1 }}>{WHATSAPP_NUMBER}</div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: '#166534', marginBottom: 6 }}>MVP NUMBER (CLICK-TO-CHAT)</div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 18, fontWeight: 700, color: '#0f5b34', letterSpacing: 1 }}>{whatsappNumber()}</div>
               </div>
               <div style={{ marginBottom: 14 }}>
                 <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--text-3)', marginBottom: 6 }}>Commands:</div>
@@ -276,7 +347,7 @@ export default function SettingsPage() {
             <strong style={{ color: 'var(--text)' }}>PrivyHealth Pakistan v1.0.0</strong><br />
             Entangled Hackathon 2026 · 10M PKR Prize Pool<br />
             Built on WireFluid Network · DRAP Compliant<br />
-            <span style={{ color: 'var(--green)' }}>contact@privyhealth.pk</span>
+            <span style={{ color: 'var(--green)' }}>{email}</span>
           </div>
         </section>
       </div>

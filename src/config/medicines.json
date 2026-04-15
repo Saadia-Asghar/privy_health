@@ -1,0 +1,2702 @@
+[
+  {
+    "brand": "Antibiot-1 150mg",
+    "generic": "Generic Compound 1",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 123,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-1",
+    "genericPrice": 82,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-1",
+      "generic compound 1",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-2 200mg",
+    "generic": "Generic Compound 2",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 126,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-2",
+    "genericPrice": 84,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-2",
+      "generic compound 2",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-3 250mg",
+    "generic": "Generic Compound 3",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 129,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-3",
+    "genericPrice": 86,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-3",
+      "generic compound 3",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-4 300mg",
+    "generic": "Generic Compound 4",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 132,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-4",
+    "genericPrice": 88,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-4",
+      "generic compound 4",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-5 350mg",
+    "generic": "Generic Compound 5",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 135,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-5",
+    "genericPrice": 90,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-5",
+      "generic compound 5",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-6 400mg",
+    "generic": "Generic Compound 6",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 138,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-6",
+    "genericPrice": 92,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-6",
+      "generic compound 6",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-7 450mg",
+    "generic": "Generic Compound 7",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 141,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-7",
+    "genericPrice": 94,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-7",
+      "generic compound 7",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-8 500mg",
+    "generic": "Generic Compound 8",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 144,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-8",
+    "genericPrice": 96,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-8",
+      "generic compound 8",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-9 550mg",
+    "generic": "Generic Compound 9",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 147,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-9",
+    "genericPrice": 98,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-9",
+      "generic compound 9",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-10 100mg",
+    "generic": "Generic Compound 10",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 150,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-10",
+    "genericPrice": 100,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-10",
+      "generic compound 10",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-11 150mg",
+    "generic": "Generic Compound 11",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 153,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-11",
+    "genericPrice": 102,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-11",
+      "generic compound 11",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-12 200mg",
+    "generic": "Generic Compound 12",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 156,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-12",
+    "genericPrice": 104,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-12",
+      "generic compound 12",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-13 250mg",
+    "generic": "Generic Compound 13",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 159,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-13",
+    "genericPrice": 106,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-13",
+      "generic compound 13",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-14 300mg",
+    "generic": "Generic Compound 14",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 162,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-14",
+    "genericPrice": 108,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-14",
+      "generic compound 14",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-15 350mg",
+    "generic": "Generic Compound 15",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 165,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-15",
+    "genericPrice": 110,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-15",
+      "generic compound 15",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-16 400mg",
+    "generic": "Generic Compound 16",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 168,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-16",
+    "genericPrice": 112,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-16",
+      "generic compound 16",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-17 450mg",
+    "generic": "Generic Compound 17",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 171,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-17",
+    "genericPrice": 114,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-17",
+      "generic compound 17",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-18 500mg",
+    "generic": "Generic Compound 18",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 174,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-18",
+    "genericPrice": 116,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-18",
+      "generic compound 18",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-19 550mg",
+    "generic": "Generic Compound 19",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 177,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-19",
+    "genericPrice": 118,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-19",
+      "generic compound 19",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-20 100mg",
+    "generic": "Generic Compound 20",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 180,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-20",
+    "genericPrice": 120,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-20",
+      "generic compound 20",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-21 150mg",
+    "generic": "Generic Compound 21",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 183,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-21",
+    "genericPrice": 122,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-21",
+      "generic compound 21",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-22 200mg",
+    "generic": "Generic Compound 22",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 186,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-22",
+    "genericPrice": 124,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-22",
+      "generic compound 22",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-23 250mg",
+    "generic": "Generic Compound 23",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 189,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-23",
+    "genericPrice": 126,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-23",
+      "generic compound 23",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-24 300mg",
+    "generic": "Generic Compound 24",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 192,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-24",
+    "genericPrice": 128,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-24",
+      "generic compound 24",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-25 350mg",
+    "generic": "Generic Compound 25",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 195,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-25",
+    "genericPrice": 130,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-25",
+      "generic compound 25",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-26 400mg",
+    "generic": "Generic Compound 26",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 198,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-26",
+    "genericPrice": 132,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-26",
+      "generic compound 26",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-27 450mg",
+    "generic": "Generic Compound 27",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 201,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-27",
+    "genericPrice": 134,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-27",
+      "generic compound 27",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-28 500mg",
+    "generic": "Generic Compound 28",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 204,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-28",
+    "genericPrice": 136,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-28",
+      "generic compound 28",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-29 550mg",
+    "generic": "Generic Compound 29",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 207,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-29",
+    "genericPrice": 138,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-29",
+      "generic compound 29",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-30 100mg",
+    "generic": "Generic Compound 30",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 210,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-30",
+    "genericPrice": 140,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-30",
+      "generic compound 30",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-31 150mg",
+    "generic": "Generic Compound 31",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 213,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-31",
+    "genericPrice": 142,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-31",
+      "generic compound 31",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-32 200mg",
+    "generic": "Generic Compound 32",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 216,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-32",
+    "genericPrice": 144,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-32",
+      "generic compound 32",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-33 250mg",
+    "generic": "Generic Compound 33",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 219,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-33",
+    "genericPrice": 146,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-33",
+      "generic compound 33",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-34 300mg",
+    "generic": "Generic Compound 34",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 222,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-34",
+    "genericPrice": 148,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-34",
+      "generic compound 34",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-35 350mg",
+    "generic": "Generic Compound 35",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 225,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-35",
+    "genericPrice": 150,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-35",
+      "generic compound 35",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-36 400mg",
+    "generic": "Generic Compound 36",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 228,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-36",
+    "genericPrice": 152,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-36",
+      "generic compound 36",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-37 450mg",
+    "generic": "Generic Compound 37",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 231,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-37",
+    "genericPrice": 154,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-37",
+      "generic compound 37",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-38 500mg",
+    "generic": "Generic Compound 38",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 234,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-38",
+    "genericPrice": 156,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-38",
+      "generic compound 38",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-39 550mg",
+    "generic": "Generic Compound 39",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 237,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-39",
+    "genericPrice": 158,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-39",
+      "generic compound 39",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-40 100mg",
+    "generic": "Generic Compound 40",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 240,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-40",
+    "genericPrice": 160,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-40",
+      "generic compound 40",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-41 150mg",
+    "generic": "Generic Compound 41",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 243,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-41",
+    "genericPrice": 162,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-41",
+      "generic compound 41",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-42 200mg",
+    "generic": "Generic Compound 42",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 246,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-42",
+    "genericPrice": 164,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-42",
+      "generic compound 42",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-43 250mg",
+    "generic": "Generic Compound 43",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 249,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-43",
+    "genericPrice": 166,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-43",
+      "generic compound 43",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-44 300mg",
+    "generic": "Generic Compound 44",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 252,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-44",
+    "genericPrice": 168,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-44",
+      "generic compound 44",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-45 350mg",
+    "generic": "Generic Compound 45",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 255,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-45",
+    "genericPrice": 170,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-45",
+      "generic compound 45",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-46 400mg",
+    "generic": "Generic Compound 46",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 258,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-46",
+    "genericPrice": 172,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-46",
+      "generic compound 46",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-47 450mg",
+    "generic": "Generic Compound 47",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 261,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-47",
+    "genericPrice": 174,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-47",
+      "generic compound 47",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-48 500mg",
+    "generic": "Generic Compound 48",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 264,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-48",
+    "genericPrice": 176,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-48",
+      "generic compound 48",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-49 550mg",
+    "generic": "Generic Compound 49",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 267,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-49",
+    "genericPrice": 178,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-49",
+      "generic compound 49",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-50 100mg",
+    "generic": "Generic Compound 50",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 270,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-50",
+    "genericPrice": 180,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-50",
+      "generic compound 50",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-51 150mg",
+    "generic": "Generic Compound 51",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 273,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-51",
+    "genericPrice": 182,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-51",
+      "generic compound 51",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-52 200mg",
+    "generic": "Generic Compound 52",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 276,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-52",
+    "genericPrice": 184,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-52",
+      "generic compound 52",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-53 250mg",
+    "generic": "Generic Compound 53",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 279,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-53",
+    "genericPrice": 186,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-53",
+      "generic compound 53",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-54 300mg",
+    "generic": "Generic Compound 54",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 282,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-54",
+    "genericPrice": 188,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-54",
+      "generic compound 54",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-55 350mg",
+    "generic": "Generic Compound 55",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 285,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-55",
+    "genericPrice": 190,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-55",
+      "generic compound 55",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-56 400mg",
+    "generic": "Generic Compound 56",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 288,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-56",
+    "genericPrice": 192,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-56",
+      "generic compound 56",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-57 450mg",
+    "generic": "Generic Compound 57",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 291,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-57",
+    "genericPrice": 194,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-57",
+      "generic compound 57",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-58 500mg",
+    "generic": "Generic Compound 58",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 294,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-58",
+    "genericPrice": 196,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-58",
+      "generic compound 58",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-59 550mg",
+    "generic": "Generic Compound 59",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 297,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-59",
+    "genericPrice": 198,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-59",
+      "generic compound 59",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-60 100mg",
+    "generic": "Generic Compound 60",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 300,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-60",
+    "genericPrice": 200,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-60",
+      "generic compound 60",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-61 150mg",
+    "generic": "Generic Compound 61",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 303,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-61",
+    "genericPrice": 202,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-61",
+      "generic compound 61",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-62 200mg",
+    "generic": "Generic Compound 62",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 306,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-62",
+    "genericPrice": 204,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-62",
+      "generic compound 62",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-63 250mg",
+    "generic": "Generic Compound 63",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 309,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-63",
+    "genericPrice": 206,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-63",
+      "generic compound 63",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-64 300mg",
+    "generic": "Generic Compound 64",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 312,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-64",
+    "genericPrice": 208,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-64",
+      "generic compound 64",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-65 350mg",
+    "generic": "Generic Compound 65",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 315,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-65",
+    "genericPrice": 210,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-65",
+      "generic compound 65",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-66 400mg",
+    "generic": "Generic Compound 66",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 318,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-66",
+    "genericPrice": 212,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-66",
+      "generic compound 66",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-67 450mg",
+    "generic": "Generic Compound 67",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 321,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-67",
+    "genericPrice": 214,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-67",
+      "generic compound 67",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-68 500mg",
+    "generic": "Generic Compound 68",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 324,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-68",
+    "genericPrice": 216,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-68",
+      "generic compound 68",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-69 550mg",
+    "generic": "Generic Compound 69",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 327,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-69",
+    "genericPrice": 218,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-69",
+      "generic compound 69",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-70 100mg",
+    "generic": "Generic Compound 70",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 330,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-70",
+    "genericPrice": 220,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-70",
+      "generic compound 70",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-71 150mg",
+    "generic": "Generic Compound 71",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 333,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-71",
+    "genericPrice": 222,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-71",
+      "generic compound 71",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-72 200mg",
+    "generic": "Generic Compound 72",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 336,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-72",
+    "genericPrice": 224,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-72",
+      "generic compound 72",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-73 250mg",
+    "generic": "Generic Compound 73",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 339,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-73",
+    "genericPrice": 226,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-73",
+      "generic compound 73",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-74 300mg",
+    "generic": "Generic Compound 74",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 342,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-74",
+    "genericPrice": 228,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-74",
+      "generic compound 74",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-75 350mg",
+    "generic": "Generic Compound 75",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 345,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-75",
+    "genericPrice": 230,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-75",
+      "generic compound 75",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-76 400mg",
+    "generic": "Generic Compound 76",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 348,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-76",
+    "genericPrice": 232,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-76",
+      "generic compound 76",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-77 450mg",
+    "generic": "Generic Compound 77",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 351,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-77",
+    "genericPrice": 234,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-77",
+      "generic compound 77",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-78 500mg",
+    "generic": "Generic Compound 78",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 354,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-78",
+    "genericPrice": 236,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-78",
+      "generic compound 78",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-79 550mg",
+    "generic": "Generic Compound 79",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 357,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-79",
+    "genericPrice": 238,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-79",
+      "generic compound 79",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-80 100mg",
+    "generic": "Generic Compound 80",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 360,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-80",
+    "genericPrice": 240,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-80",
+      "generic compound 80",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-81 150mg",
+    "generic": "Generic Compound 81",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 363,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-81",
+    "genericPrice": 242,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-81",
+      "generic compound 81",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-82 200mg",
+    "generic": "Generic Compound 82",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 366,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-82",
+    "genericPrice": 244,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-82",
+      "generic compound 82",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-83 250mg",
+    "generic": "Generic Compound 83",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 369,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-83",
+    "genericPrice": 246,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-83",
+      "generic compound 83",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-84 300mg",
+    "generic": "Generic Compound 84",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 372,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-84",
+    "genericPrice": 248,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-84",
+      "generic compound 84",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-85 350mg",
+    "generic": "Generic Compound 85",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 375,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-85",
+    "genericPrice": 250,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-85",
+      "generic compound 85",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-86 400mg",
+    "generic": "Generic Compound 86",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 378,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-86",
+    "genericPrice": 252,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-86",
+      "generic compound 86",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-87 450mg",
+    "generic": "Generic Compound 87",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 381,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-87",
+    "genericPrice": 254,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-87",
+      "generic compound 87",
+      "anticoagulant"
+    ]
+  },
+  {
+    "brand": "Bronchod-88 500mg",
+    "generic": "Generic Compound 88",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 384,
+    "tabletsPerStrip": 10,
+    "category": "Bronchodilator",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-88",
+    "genericPrice": 256,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "bronchod-88",
+      "generic compound 88",
+      "bronchodilator"
+    ]
+  },
+  {
+    "brand": "Vitamin-89 550mg",
+    "generic": "Generic Compound 89",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 387,
+    "tabletsPerStrip": 10,
+    "category": "Vitamin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-89",
+    "genericPrice": 258,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "vitamin-89",
+      "generic compound 89",
+      "vitamin"
+    ]
+  },
+  {
+    "brand": "Antifung-90 100mg",
+    "generic": "Generic Compound 90",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 390,
+    "tabletsPerStrip": 10,
+    "category": "Antifungal",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-90",
+    "genericPrice": 260,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antifung-90",
+      "generic compound 90",
+      "antifungal"
+    ]
+  },
+  {
+    "brand": "Antivira-91 150mg",
+    "generic": "Generic Compound 91",
+    "manufacturer": "Getz Pakistan",
+    "pricePerStrip": 393,
+    "tabletsPerStrip": 10,
+    "category": "Antiviral",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-91",
+    "genericPrice": 262,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antivira-91",
+      "generic compound 91",
+      "antiviral"
+    ]
+  },
+  {
+    "brand": "Antibiot-92 200mg",
+    "generic": "Generic Compound 92",
+    "manufacturer": "Hilton Pakistan",
+    "pricePerStrip": 396,
+    "tabletsPerStrip": 10,
+    "category": "Antibiotic",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-92",
+    "genericPrice": 264,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antibiot-92",
+      "generic compound 92",
+      "antibiotic"
+    ]
+  },
+  {
+    "brand": "Antidiab-93 250mg",
+    "generic": "Generic Compound 93",
+    "manufacturer": "Ferozsons Pakistan",
+    "pricePerStrip": 399,
+    "tabletsPerStrip": 10,
+    "category": "Antidiabetic",
+    "scheduleType": "H",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-93",
+    "genericPrice": 266,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antidiab-93",
+      "generic compound 93",
+      "antidiabetic"
+    ]
+  },
+  {
+    "brand": "Antihype-94 300mg",
+    "generic": "Generic Compound 94",
+    "manufacturer": "AGP Pakistan",
+    "pricePerStrip": 402,
+    "tabletsPerStrip": 10,
+    "category": "Antihypertensive",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-94",
+    "genericPrice": 268,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihype-94",
+      "generic compound 94",
+      "antihypertensive"
+    ]
+  },
+  {
+    "brand": "NSAID-95 350mg",
+    "generic": "Generic Compound 95",
+    "manufacturer": "CCL Pakistan",
+    "pricePerStrip": 405,
+    "tabletsPerStrip": 10,
+    "category": "NSAID",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-95",
+    "genericPrice": 270,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "nsaid-95",
+      "generic compound 95",
+      "nsaid"
+    ]
+  },
+  {
+    "brand": "PPI-96 400mg",
+    "generic": "Generic Compound 96",
+    "manufacturer": "Efroze Pakistan",
+    "pricePerStrip": 408,
+    "tabletsPerStrip": 10,
+    "category": "PPI",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-96",
+    "genericPrice": 272,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "ppi-96",
+      "generic compound 96",
+      "ppi"
+    ]
+  },
+  {
+    "brand": "Statin-97 450mg",
+    "generic": "Generic Compound 97",
+    "manufacturer": "Genome Pakistan",
+    "pricePerStrip": 411,
+    "tabletsPerStrip": 10,
+    "category": "Statin",
+    "scheduleType": "OTC",
+    "prescriptionRequired": false,
+    "genericAvailable": true,
+    "genericBrand": "Gen-97",
+    "genericPrice": 274,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "statin-97",
+      "generic compound 97",
+      "statin"
+    ]
+  },
+  {
+    "brand": "Antihist-98 500mg",
+    "generic": "Generic Compound 98",
+    "manufacturer": "Macter Pakistan",
+    "pricePerStrip": 414,
+    "tabletsPerStrip": 10,
+    "category": "Antihistamine",
+    "scheduleType": "OTC",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-98",
+    "genericPrice": 276,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "antihist-98",
+      "generic compound 98",
+      "antihistamine"
+    ]
+  },
+  {
+    "brand": "Psychotr-99 550mg",
+    "generic": "Generic Compound 99",
+    "manufacturer": "Saffron Pakistan",
+    "pricePerStrip": 417,
+    "tabletsPerStrip": 10,
+    "category": "Psychotropic",
+    "scheduleType": "H",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-99",
+    "genericPrice": 278,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "psychotr-99",
+      "generic compound 99",
+      "psychotropic"
+    ]
+  },
+  {
+    "brand": "Anticoag-100 100mg",
+    "generic": "Generic Compound 100",
+    "manufacturer": "Highnoon Pakistan",
+    "pricePerStrip": 420,
+    "tabletsPerStrip": 10,
+    "category": "Anticoagulant",
+    "scheduleType": "G",
+    "prescriptionRequired": true,
+    "genericAvailable": true,
+    "genericBrand": "Gen-100",
+    "genericPrice": 280,
+    "commonUses": [
+      "Routine treatment",
+      "Clinical management",
+      "Doctor advised use"
+    ],
+    "commonAllergies": [
+      "Penicillin",
+      "NSAID sensitivity"
+    ],
+    "searchTerms": [
+      "anticoag-100",
+      "generic compound 100",
+      "anticoagulant"
+    ]
+  }
+]

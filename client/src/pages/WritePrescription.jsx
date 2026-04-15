@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import s from './Page.module.css'
 import ws from './WritePrescription.module.css'
 import TransactionPreview from '../components/TransactionPreview.jsx'
 import WhatsNext from '../components/WhatsNext.jsx'
 import FieldHelp from '../components/FieldHelp.jsx'
 import SecurityFooter from '../components/SecurityFooter.jsx'
+import { AppCtx } from '../App.jsx'
+import { clearAuthSession, fetchWithAuth, getAuthSession, login } from '../lib/auth.js'
+import { whatsappNumber, whatsappWaLink } from '../lib/publicSite.js'
 
 const categories = [
   { value: 'ScheduleG', label: 'Schedule G — Antibiotic / Prescription Required' },
@@ -14,8 +17,14 @@ const categories = [
 ]
 
 export default function WritePrescription() {
+  const { wallet } = useContext(AppCtx)
+  const [session, setSession] = useState(() => getAuthSession())
+  const [doctorEmail, setDoctorEmail] = useState('doctor@local.demo')
+  const [doctorPassword, setDoctorPassword] = useState('')
+  const [authErr, setAuthErr] = useState('')
   const [form, setForm] = useState({
     patientName: 'Ayesha Malik',
+    patientId: 'demo-patient',
     medication: '',
     dosage: '',
     frequency: '',
@@ -27,12 +36,23 @@ export default function WritePrescription() {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState(null)
   const [error, setError] = useState(null)
+  const [copied, setCopied] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
   const [showWhatsNext, setShowWhatsNext] = useState(false)
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
+  const canWrite = ['doctor', 'admin'].includes(session?.user?.role)
 
   function handleSubmit(e) {
     e.preventDefault()
+    if (!canWrite) {
+      setError('Doctor/admin login required to issue prescriptions.')
+      return
+    }
+    const validationError = validateForm(form)
+    if (validationError) {
+      setError(validationError)
+      return
+    }
     setError(null)
     setShowPreview(true)
   }
@@ -41,14 +61,15 @@ export default function WritePrescription() {
     setShowPreview(false)
     setLoading(true)
     try {
-      const resp = await fetch('/api/prescriptions', {
+      const pid = (form.patientId || '').trim() || 'demo-patient'
+      const resp = await fetchWithAuth('/api/prescriptions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
-          doctorId: 'demo-doctor',
-          doctorName: 'Dr. Ahmed Khan',
-          patientId: 'demo-patient',
+          patientId: pid,
+          doctorId: wallet ? wallet.toLowerCase() : 'demo-doctor',
+          doctorName: wallet ? 'Attending physician (wallet-linked)' : 'Dr. Ahmed Khan',
         }),
       })
       const data = await resp.json()
@@ -57,17 +78,35 @@ export default function WritePrescription() {
       setShowWhatsNext(true)
     } catch (err) {
       setError(err.message)
+      if (err.code === 'AUTH_EXPIRED') setSession(null)
     }
     setLoading(false)
   }
 
   function copyCode(code) {
-    navigator.clipboard?.writeText(code).catch(() => {})
+    navigator.clipboard?.writeText(code).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 1400)
+    }).catch(() => {})
+  }
+
+  async function signInDoctor(e) {
+    e.preventDefault()
+    setAuthErr('')
+    try {
+      const out = await login(doctorEmail, doctorPassword)
+      if (!['doctor', 'admin'].includes(out.user?.role)) throw new Error('Doctor/admin role required')
+      setSession(out)
+      setError(null)
+      setDoctorPassword('')
+    } catch (e2) {
+      setAuthErr(e2.message)
+    }
   }
 
   function shareWhatsApp(code, medicine) {
-    const msg = encodeURIComponent(`Prescription Code: ${code}\nMedicine: ${medicine}\n\nPharmacist — please send: verify ${code}`)
-    window.open(`https://wa.me/?text=${msg}`, '_blank')
+    const msg = `Prescription Code: ${code}\nMedicine: ${medicine}\n\nPharmacist — please send: verify ${code}`
+    window.open(whatsappWaLink(msg), '_blank')
   }
 
   function printResult(p) {
@@ -90,7 +129,7 @@ export default function WritePrescription() {
     <tr><td>Duration</td><td>${p.duration}</td></tr>
     <tr><td>Doctor</td><td>${p.doctorName}</td></tr>
     <tr><td>Valid Until</td><td>${new Date(p.validUntil).toLocaleDateString('en-PK', { day: 'numeric', month: 'long', year: 'numeric' })}</td></tr></table>
-    <div class="verify-box"><strong>For pharmacists:</strong> Send <strong>verify ${p.code}</strong> to WhatsApp +923001234567</div>
+    <div class="verify-box"><strong>For pharmacists:</strong> Send <strong>verify ${p.code}</strong> to WhatsApp ${whatsappNumber()}</div>
     <script>window.onload=()=>window.print()</script></body></html>`)
     win.document.close()
   }
@@ -122,6 +161,11 @@ export default function WritePrescription() {
             🖨 Print
           </button>
         </div>
+        {copied && (
+          <div style={{ marginTop: 8, fontSize: 12, color: '#166534', fontWeight: 600 }}>
+            Code copied. Share it with patient/pharmacy.
+          </div>
+        )}
 
         <div className="rx-patient-instructions">
           <div className="rx-instructions-title">Tell the patient:</div>
@@ -155,12 +199,54 @@ export default function WritePrescription() {
       <h1 className={s.title}>Write Prescription</h1>
       <p className={s.desc}>Issues a signed prescription with a 6-digit verification code for the patient</p>
 
+      <div className={s.card} style={{ maxWidth: 560, marginBottom: 14 }}>
+        <div style={{ fontWeight: 700, marginBottom: 8 }}>Doctor API session</div>
+        {canWrite ? (
+          <div style={{ fontSize: 12, color: '#166534' }}>
+            Signed in as <strong>{session.user.email}</strong> ({session.user.role}). Prescriptions use JWT authorization.
+            <button
+              className={s.smBtn}
+              type="button"
+              style={{ marginLeft: 10 }}
+              onClick={() => { clearAuthSession(); setSession(null) }}
+            >
+              Sign out
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={signInDoctor} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: 8, alignItems: 'end' }}>
+            <div className={s.field}>
+              <label>Email</label>
+              <input value={doctorEmail} onChange={e => setDoctorEmail(e.target.value)} />
+            </div>
+            <div className={s.field}>
+              <label>Password</label>
+              <input type="password" value={doctorPassword} onChange={e => setDoctorPassword(e.target.value)} />
+            </div>
+            <button className={s.smBtn} type="submit" style={{ height: 36 }}>Sign in</button>
+            {authErr && <div style={{ gridColumn: '1 / -1', fontSize: 12, color: '#dc2626' }}>{authErr}</div>}
+          </form>
+        )}
+      </div>
+
       <form onSubmit={handleSubmit}>
         <div className={s.card} style={{ maxWidth: 560 }}>
           <div className={s.row}>
             <div className={s.field}>
               <label>Patient Name</label>
               <input value={form.patientName} onChange={e => set('patientName', e.target.value)} required />
+            </div>
+
+            <div className={`${s.field} ${s.fullField}`}>
+              <label>Patient record ID</label>
+              <input
+                value={form.patientId}
+                onChange={e => set('patientId', e.target.value)}
+                placeholder="demo-patient (default) or patient wallet 0x…"
+              />
+              <span style={{ fontSize: 11, color: 'var(--text-3)', display: 'block', marginTop: 4 }}>
+                Must match the ID the patient dashboard uses. Judges: leave as <code style={{ fontFamily: 'var(--mono)', fontSize: 10 }}>demo-patient</code>.
+              </span>
             </div>
 
             <div className={s.field}>
@@ -232,11 +318,26 @@ export default function WritePrescription() {
             </div>
           )}
 
-          <button type="submit" className={s.btn} disabled={loading}>
-            {loading ? <><span className="loading-spinner" /> Sending...</> : '💊 Sign & Send Prescription'}
+          <button type="submit" className={s.btn} disabled={loading || !canWrite}>
+            {loading ? <><span className="loading-spinner" /> Sending...</> : canWrite ? '💊 Sign & Send Prescription' : 'Doctor Login Required'}
           </button>
         </div>
       </form>
     </div>
   )
+}
+
+function validateForm(form) {
+  const patientName = (form.patientName || '').trim()
+  const medication = (form.medication || '').trim()
+  const dosage = (form.dosage || '').trim()
+  const frequency = (form.frequency || '').trim()
+  const duration = (form.duration || '').trim()
+
+  if (patientName.length < 3) return 'Please enter a valid patient name (at least 3 characters).'
+  if (medication.length < 3) return 'Please enter a valid medication name.'
+  if (dosage.length < 2) return 'Please enter dosage details.'
+  if (frequency.length < 3) return 'Please enter frequency details (e.g. twice daily).'
+  if (duration.length < 2) return 'Please enter treatment duration.'
+  return ''
 }

@@ -1,11 +1,17 @@
 import React, { useState, useContext } from 'react'
+import { BrowserProvider, Contract } from 'ethers'
 import { AppCtx } from '../App.jsx'
 import { useNavigate } from 'react-router-dom'
 import s from './Page.module.css'
 import SecurityFooter from '../components/SecurityFooter.jsx'
+import healthRecordArtifact from '../../../src/artifacts/contracts/HealthRecord.sol/HealthRecord.json'
+
+const RECORD_KEY = 'privyhealth_record_created'
+const RECORD_SNAPSHOT_KEY = 'privyhealth_record_snapshot'
+const HEALTH_RECORD_ADDR = import.meta.env.VITE_ADDR_HEALTH_RECORD
 
 export default function MintRecord() {
-  const { wallet, setWallet } = useContext(AppCtx)
+  const { wallet } = useContext(AppCtx)
   const navigate = useNavigate()
   const [form, setForm] = useState({
     name: 'Ayesha Malik',
@@ -17,15 +23,73 @@ export default function MintRecord() {
   })
   const [created, setCreated] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+  const [txHash, setTxHash] = useState('')
+  const [tokenId, setTokenId] = useState('')
 
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }))
 
+  function buildTokenUri() {
+    const payload = {
+      name: `PrivyHealth Record · ${form.name}`,
+      description: 'Patient-controlled encrypted health record pointer',
+      attributes: [
+        { trait_type: 'Blood Type', value: form.bloodType || 'Unknown' },
+        { trait_type: 'Country', value: 'Pakistan' },
+      ],
+      issuedAt: new Date().toISOString(),
+    }
+    return `data:application/json;utf8,${encodeURIComponent(JSON.stringify(payload))}`
+  }
+
+  function encryptedPointer() {
+    const compact = JSON.stringify({
+      n: form.name,
+      b: form.bloodType,
+      a: form.allergies,
+      c: form.conditions,
+      e: form.emergencyContact,
+      t: Date.now(),
+    })
+    return `enc://${btoa(unescape(encodeURIComponent(compact))).slice(0, 220)}`
+  }
+
   async function create(e) {
     e.preventDefault()
+    setError('')
     setLoading(true)
-    await new Promise(r => setTimeout(r, 1600))
-    setWallet('0x' + Math.random().toString(16).slice(2, 42))
-    setCreated(true)
+    try {
+      let mintedTokenId = ''
+      let mintedTx = ''
+      const canMintOnChain = Boolean(wallet && HEALTH_RECORD_ADDR && window.ethereum)
+      if (canMintOnChain) {
+        const provider = new BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        const contract = new Contract(HEALTH_RECORD_ADDR, healthRecordArtifact.abi, signer)
+        const tx = await contract.mintRecord(encryptedPointer(), buildTokenUri())
+        mintedTx = tx.hash || ''
+        await tx.wait()
+        const pid = await contract.patientToken(wallet.toLowerCase())
+        mintedTokenId = pid?.toString?.() || ''
+      } else {
+        // Keep demo path working when contracts are not configured.
+        await new Promise(r => setTimeout(r, 700))
+      }
+
+      localStorage.setItem(RECORD_KEY, '1')
+      if (wallet) localStorage.setItem('privyhealth_record_wallet', wallet.toLowerCase())
+      localStorage.setItem(RECORD_SNAPSHOT_KEY, JSON.stringify({
+        ...form,
+        tokenId: mintedTokenId,
+        txHash: mintedTx,
+        updatedAt: new Date().toISOString(),
+      }))
+      setTxHash(mintedTx)
+      setTokenId(mintedTokenId)
+      setCreated(true)
+    } catch (err) {
+      setError(err?.shortMessage || err?.message || 'Could not create record. Please try again.')
+    }
     setLoading(false)
   }
 
@@ -45,6 +109,16 @@ export default function MintRecord() {
             3. Set up WhatsApp alerts in Settings
           </div>
         </div>
+        {!!tokenId && (
+          <div style={{ marginBottom: 10, fontSize: 12, color: 'var(--text-2)' }}>
+            Record token ID: <strong style={{ fontFamily: 'var(--mono)' }}>#{tokenId}</strong>
+          </div>
+        )}
+        {!!txHash && (
+          <div style={{ marginBottom: 14, fontSize: 12, color: 'var(--text-2)' }}>
+            On-chain tx: <span style={{ fontFamily: 'var(--mono)' }}>{txHash.slice(0, 18)}...{txHash.slice(-8)}</span>
+          </div>
+        )}
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
           <button className={s.btn} style={{ width: 'auto', padding: '9px 20px' }} onClick={() => navigate('/patient')}>
             View My Dashboard
@@ -62,6 +136,17 @@ export default function MintRecord() {
     <div className={s.page}>
       <h1 className={s.title}>Create Health Record</h1>
       <p className={s.desc}>Set up your encrypted health record on WireFluid. Your data is only accessible to doctors and pharmacists you authorise.</p>
+      {!HEALTH_RECORD_ADDR && (
+        <div className={s.card} style={{ maxWidth: 560, marginBottom: 16, padding: '10px 14px', fontSize: 12, border: '1px dashed #f59e0b', color: '#92400e' }}>
+          On-chain mint is disabled because <code style={{ fontFamily: 'var(--mono)' }}>VITE_ADDR_HEALTH_RECORD</code> is not set. The app will use local demo mode.
+        </div>
+      )}
+
+      {!wallet && (
+        <div className={s.card} style={{ maxWidth: 560, marginBottom: 16, padding: '12px 16px', fontSize: 13, color: 'var(--text-2)', border: '1px dashed var(--border)' }}>
+          <strong style={{ color: 'var(--text)' }}>Tip:</strong> Connect your wallet in the header first so your record can be tied to your on-chain identity in a full deployment.
+        </div>
+      )}
 
       <form onSubmit={create}>
         <div className={s.card} style={{ maxWidth: 560 }}>
@@ -107,6 +192,7 @@ export default function MintRecord() {
               'Create My Health Record'
             )}
           </button>
+          {error && <div style={{ marginTop: 10, fontSize: 12, color: '#dc2626' }}>{error}</div>}
         </div>
       </form>
     </div>

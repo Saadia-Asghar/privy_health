@@ -1,6 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import s from './Page.module.css'
+import { api } from '../lib/api.js'
+import { whatsappNumber } from '../lib/publicSite.js'
+import { AppCtx } from '../App.jsx'
 
 function MiniWhatsApp() {
   const [input, setInput] = useState('')
@@ -19,7 +22,7 @@ function MiniWhatsApp() {
     setMessages(prev => [...prev, { from: 'user', text: userMsg }])
     setLoading(true)
     try {
-      const res = await fetch('/api/whatsapp/test', {
+      const res = await fetch(api('/api/whatsapp/test'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMsg }),
@@ -83,7 +86,7 @@ function MiniVerify() {
     if (!code.trim()) return
     setLoading(true)
     try {
-      const res = await fetch(`/api/prescriptions/verify/${code.trim()}`)
+      const res = await fetch(api(`/api/prescriptions/verify/${code.trim()}`))
       const data = await res.json()
       setResult(data)
     } catch {
@@ -127,6 +130,7 @@ function MiniVerify() {
 
 export default function LiveDemo({ isLive }) {
   const navigate = useNavigate()
+  const { lang } = useContext(AppCtx)
   const [activeStep, setActiveStep] = useState(0)
 
   const steps = [
@@ -161,7 +165,7 @@ export default function LiveDemo({ isLive }) {
           <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 4 }}>Augmentin 625mg</div>
           <div style={{ fontSize: 13, color: '#666' }}>Valid until April 12, 2026</div>
           <div style={{ marginTop: 14, fontSize: 12, color: '#888' }}>
-            Or WhatsApp: <strong>verify PK-7X4M2K</strong> → +923001234567
+            Or WhatsApp: <strong>verify PK-7X4M2K</strong> → {whatsappNumber()}
           </div>
         </div>
       ),
@@ -208,13 +212,21 @@ export default function LiveDemo({ isLive }) {
   return (
     <div className={s.page}>
       <div className={s.header}>
-        <h1 className={s.title}>{isLive ? '● Live Demo' : '▷ Interactive Demo'}</h1>
+        <h1 className={s.title}>
+          {lang === 'ur' ? (isLive ? '● Live ڈیمو' : '▷ Interactive ڈیمو') : (isLive ? '● Live Demo' : '▷ Interactive Demo')}
+        </h1>
         <span className={s.badge} style={{ background: isLive ? '#dcfce7' : '#f3f4f6', color: isLive ? '#16a34a' : 'var(--text-2)' }}>
           {isLive ? 'Live' : 'Demo'}
         </span>
       </div>
       <p className={s.desc}>
-        {isLive ? 'All data is live on WireFluid testnet — no wallet needed to explore' : 'Click through to see every feature — no wallet or registration needed'}
+        {lang === 'ur'
+          ? (isLive
+            ? 'تمام ڈیٹا WireFluid testnet پر live ہے — دیکھنے کے لیے wallet ضروری نہیں۔'
+            : 'ہر فیچر دیکھنے کے لیے step-by-step demo چلائیں — بغیر رجسٹریشن بھی ممکن۔')
+          : (isLive
+            ? 'All data is live on WireFluid testnet — no wallet needed to explore'
+            : 'Click through to see every feature — no wallet or registration needed')}
       </p>
 
       <div className="demo-badge">🎮 Read-Only · No Wallet Needed</div>

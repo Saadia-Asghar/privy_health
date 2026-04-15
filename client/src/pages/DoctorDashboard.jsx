@@ -2,19 +2,36 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { AppCtx } from '../App.jsx'
 import s from './Page.module.css'
+import { api } from '../lib/api.js'
 
 export default function DoctorDashboard() {
   const { wallet } = useContext(AppCtx)
   const [prescriptions, setPrescriptions] = useState([])
+  const [appointments, setAppointments] = useState([])
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/api/prescriptions?doctorId=demo-doctor')
-      .then(r => r.json())
-      .then(data => { setPrescriptions(Array.isArray(data) ? data : []); setLoading(false) })
-      .catch(() => setLoading(false))
-  }, [])
+    const demo = api('/api/prescriptions?doctorId=demo-doctor')
+    const urls = wallet
+      ? [demo, api(`/api/prescriptions?doctorId=${encodeURIComponent(wallet.toLowerCase())}`)]
+      : [demo]
+    Promise.all(urls.map((u) => fetch(u).then((r) => r.json())))
+      .then((lists) => {
+        const byCode = new Map()
+        for (const data of lists) {
+          if (Array.isArray(data)) data.forEach((p) => byCode.set(p.code, p))
+        }
+        setPrescriptions([...byCode.values()])
+      })
+      .catch(() => setPrescriptions([]))
+      .finally(() => setLoading(false))
+
+    fetch(api('/api/appointments?doctorId=PMDC-12345'))
+      .then((r) => r.json())
+      .then((rows) => setAppointments(Array.isArray(rows) ? rows : []))
+      .catch(() => setAppointments([]))
+  }, [wallet])
 
   const today = prescriptions.filter(p => {
     const d = new Date(p.issuedAt)
@@ -51,6 +68,10 @@ export default function DoctorDashboard() {
         <div className={s.stat}>
           <div className={s.statVal}>{prescriptions.length}</div>
           <div className={s.statLbl}>Total Issued</div>
+        </div>
+        <div className={s.stat}>
+          <div className={s.statVal} style={{ color: '#7c3aed' }}>{appointments.length}</div>
+          <div className={s.statLbl}>Appointments</div>
         </div>
       </div>
 
@@ -90,6 +111,33 @@ export default function DoctorDashboard() {
                   color: p.filled ? '#1d4ed8' : '#16a34a',
                 }}>
                   {p.filled ? 'Filled' : 'Active'}
+                </span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div style={{ marginTop: 20 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <h2 style={{ fontWeight: 700, fontSize: 15 }}>Appointment Requests</h2>
+          <span style={{ fontSize: 12, color: 'var(--text-3)' }}>{appointments.length} pending/received</span>
+        </div>
+        {appointments.length === 0 ? (
+          <div className={s.card} style={{ fontSize: 13, color: 'var(--text-2)' }}>
+            No appointment requests yet from the finder.
+          </div>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {appointments.slice(0, 6).map((a) => (
+              <div key={a.id} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '12px 16px', display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: 13 }}>{a.patientName} · {a.slot}</div>
+                  <div style={{ fontSize: 12, color: 'var(--text-2)' }}>{a.phone} · {a.city}</div>
+                  {a.note && <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 3 }}>{a.note}</div>}
+                </div>
+                <span style={{ padding: '3px 10px', borderRadius: 100, background: '#ede9fe', color: '#6d28d9', fontSize: 11, fontWeight: 700, alignSelf: 'start' }}>
+                  {a.status}
                 </span>
               </div>
             ))}

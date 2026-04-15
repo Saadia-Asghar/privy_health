@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import s from './Page.module.css'
+import { AppCtx } from '../App.jsx'
 
 export default function AboutPage() {
   const navigate = useNavigate()
+  const { lang } = useContext(AppCtx)
 
   return (
     <div className={s.page}>
-      <h1 className={s.title}>About PrivyHealth Pakistan</h1>
-      <p className={s.desc}>Secure prescription verification for Pakistan's 230 million people. Built for the Entangled Hackathon 2026.</p>
+      <h1 className={s.title}>{lang === 'ur' ? 'PrivyHealth Pakistan کے بارے میں' : 'About PrivyHealth Pakistan'}</h1>
+      <p className={s.desc}>
+        {lang === 'ur'
+          ? 'پاکستان کے لیے محفوظ نسخہ ویریفکیشن پلیٹ فارم — Entangled Hackathon 2026 کے لیے تیار کیا گیا۔'
+          : "Secure prescription verification for Pakistan's 230 million people. Built for the Entangled Hackathon 2026."}
+      </p>
 
       <div className={s.aboutGrid}>
         <div className={s.card}>

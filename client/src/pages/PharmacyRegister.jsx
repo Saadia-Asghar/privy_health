@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import s from './Page.module.css'
+import { api } from '../lib/api.js'
 
 export default function PharmacyRegister() {
   const [form, setForm] = useState({ name: '', city: '', address: '', drapLicense: '', whatsappNumber: '', ownerName: '' })
@@ -28,7 +29,7 @@ export default function PharmacyRegister() {
     if (!validate()) return
     setLoading(true)
     try {
-      const resp = await fetch('/api/pharmacies', {
+      const resp = await fetch(api('/api/pharmacies'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

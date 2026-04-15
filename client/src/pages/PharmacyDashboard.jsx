@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import s from './Page.module.css'
+import { api } from '../lib/api.js'
 
 export default function PharmacyDashboard() {
   const [stats, setStats] = useState(null)
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/api/pharmacy/demo-pharmacy/stats')
+    fetch(api('/api/pharmacy/demo-pharmacy/stats'))
       .then(r => r.json()).then(setStats).catch(() => {})
   }, [])
 

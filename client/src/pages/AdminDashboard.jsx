@@ -1,53 +1,87 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import s from './Page.module.css'
+import { clearAuthSession, fetchWithAuth, getAuthSession, login } from '../lib/auth.js'
 
-const ADMIN_PASSWORD = 'entangled2026'
+const DEFAULT_EMAIL = 'admin@local.demo'
 
 export default function AdminDashboard() {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem('admin_auth') === '1')
-  const [pw, setPw] = useState('')
+  const [session, setSession] = useState(() => getAuthSession())
+  const [email, setEmail] = useState(DEFAULT_EMAIL)
+  const [password, setPassword] = useState('')
   const [pwErr, setPwErr] = useState('')
   const [data, setData] = useState(null)
-  const [approving, setApproving] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    if (!authed) return
-    fetch('/api/admin/overview').then(r => r.json()).then(setData).catch(() => {})
-  }, [authed])
-
-  function login(e) {
-    e.preventDefault()
-    if (pw === ADMIN_PASSWORD) {
-      sessionStorage.setItem('admin_auth', '1')
-      setAuthed(true)
-    } else {
-      setPwErr('Incorrect password')
-      setPw('')
+  async function loadOverview() {
+    setLoading(true)
+    setPwErr('')
+    try {
+      const res = await fetchWithAuth('/api/admin/overview')
+      const body = await res.json()
+      if (!res.ok) throw new Error(body.error || 'Failed to load admin overview')
+      setData(body)
+    } catch (e) {
+      setPwErr(e.message)
+      if (e.code === 'AUTH_EXPIRED') logout()
+    } finally {
+      setLoading(false)
     }
   }
 
-  if (!authed) return (
+  useEffect(() => {
+    if (!session?.token) return
+    loadOverview()
+  }, [session?.token])
+
+  async function handleLogin(e) {
+    e.preventDefault()
+    setPwErr('')
+    try {
+      const out = await login(email, password)
+      if (out.user?.role !== 'admin') {
+        clearAuthSession()
+        setSession(null)
+        throw new Error('Admin account required')
+      }
+      setSession(out)
+      setPassword('')
+    } catch (err) {
+      setPwErr(err.message)
+      setPassword('')
+    }
+  }
+
+  function logout() {
+    clearAuthSession()
+    setSession(null)
+    setData(null)
+  }
+
+  if (!session?.token) return (
     <div className={s.page} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh' }}>
-      <div className={s.card} style={{ maxWidth: 380, width: '100%', textAlign: 'center' }}>
+      <div className={s.card} style={{ maxWidth: 420, width: '100%', textAlign: 'center' }}>
         <div style={{ fontSize: 40, marginBottom: 12 }}>🔐</div>
-        <h2 style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>Admin Access</h2>
-        <p style={{ fontSize: 13, color: 'var(--text-2)', marginBottom: 20 }}>PrivyHealth Pakistan · DRAP Compliance Portal</p>
-        <form onSubmit={login}>
-          <div className={s.field} style={{ marginBottom: 12 }}>
-            <label>Admin Password</label>
+        <h2 style={{ fontWeight: 700, fontSize: 18, marginBottom: 4 }}>Admin sign in</h2>
+        <p style={{ fontSize: 13, color: 'var(--text-2)', marginBottom: 20 }}>Use backend auth so role checks work in production.</p>
+        <form onSubmit={handleLogin}>
+          <div className={s.field} style={{ marginBottom: 12, textAlign: 'left' }}>
+            <label>Email</label>
+            <input value={email} onChange={e => setEmail(e.target.value)} autoFocus />
+          </div>
+          <div className={s.field} style={{ marginBottom: 12, textAlign: 'left' }}>
+            <label>Password</label>
             <input
               type="password"
-              value={pw}
-              onChange={e => { setPw(e.target.value); setPwErr('') }}
-              placeholder="Enter password"
-              autoFocus
+              value={password}
+              onChange={e => { setPassword(e.target.value); setPwErr('') }}
+              placeholder="Enter admin password"
             />
-            {pwErr && <span style={{ fontSize: 11, color: '#dc2626', marginTop: 3 }}>⚠ {pwErr}</span>}
+            {pwErr && <span style={{ fontSize: 11, color: '#dc2626', marginTop: 3, display: 'block' }}>⚠ {pwErr}</span>}
           </div>
-          <div style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 14 }}>
-            Demo password: <code style={{ fontFamily: 'var(--mono)' }}>entangled2026</code>
+          <div style={{ fontSize: 11, color: 'var(--text-3)', marginBottom: 14, lineHeight: 1.5, textAlign: 'left' }}>
+            Default bootstrap admin: <code style={{ fontFamily: 'var(--mono)', fontSize: 10 }}>admin@local.demo</code>.
           </div>
-          <button type="submit" className={s.btn}>Login to Admin</button>
+          <button type="submit" className={s.btn}>Sign in</button>
         </form>
       </div>
     </div>
@@ -56,8 +90,11 @@ export default function AdminDashboard() {
   return (
     <div className={s.page}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-        <h1 className={s.title}>Admin · DRAP Compliance</h1>
-        <button className={s.smBtn} onClick={() => { sessionStorage.removeItem('admin_auth'); setAuthed(false) }}>Logout</button>
+        <h1 className={s.title}>Admin · operations overview</h1>
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button className={s.smBtn} onClick={loadOverview} disabled={loading}>{loading ? 'Refreshing…' : 'Refresh'}</button>
+          <button className={s.smBtn} onClick={logout}>Logout</button>
+        </div>
       </div>
       <p className={s.desc}>PrivyHealth Pakistan · System overview and compliance reporting</p>
 
@@ -69,6 +106,7 @@ export default function AdminDashboard() {
               ['✅', data.filledPrescriptions, 'Filled'],
               ['📈', `${data.fillRate}%`, 'Fill Rate'],
               ['🏪', data.totalPharmacies, 'Pharmacies'],
+              ['📅', data.totalAppointments || 0, 'Appointments'],
             ].map(([icon, val, lbl]) => (
               <div key={lbl} className={s.stat}>
                 <div style={{ fontSize: 20, marginBottom: 4 }}>{icon}</div>
@@ -144,6 +182,33 @@ export default function AdminDashboard() {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div style={{ marginTop: 24 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+              <h2 style={{ fontWeight: 700, fontSize: 15 }}>Latest Appointment Requests</h2>
+              <span style={{ fontSize: 12, color: 'var(--text-3)' }}>{(data.appointments || []).length} shown</span>
+            </div>
+            {(data.appointments || []).length === 0 ? (
+              <div className={s.card} style={{ fontSize: 13, color: 'var(--text-2)' }}>
+                No appointment requests submitted yet.
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {(data.appointments || []).map((a) => (
+                  <div key={a.id} style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', padding: '12px 16px', display: 'flex', justifyContent: 'space-between', gap: 8 }}>
+                    <div>
+                      <div style={{ fontWeight: 700, fontSize: 13 }}>{a.patientName} → {a.doctorName}</div>
+                      <div style={{ fontSize: 12, color: 'var(--text-2)' }}>{a.city} · {a.slot} · {a.phone}</div>
+                      {a.note && <div style={{ fontSize: 12, color: 'var(--text-3)', marginTop: 2 }}>{a.note}</div>}
+                    </div>
+                    <span style={{ padding: '3px 10px', borderRadius: 100, background: '#ede9fe', color: '#6d28d9', fontSize: 11, fontWeight: 700, alignSelf: 'start' }}>
+                      {a.status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </>
       )}

@@ -4,10 +4,13 @@ import { AppCtx } from '../App.jsx'
 import s from './Page.module.css'
 import ps from './PatientDashboard.module.css'
 import SecurityFooter from '../components/SecurityFooter.jsx'
+import { api } from '../lib/api.js'
+import { publicSiteUrl, whatsappNumber, whatsappWaLink } from '../lib/publicSite.js'
 
-function PatientNextSteps({ prescriptions }) {
+const RECORD_KEY = 'privyhealth_record_created'
+
+function PatientNextSteps({ prescriptions, hasRecord }) {
   const navigate = useNavigate()
-  const hasRecord = true
   const hasPrescriptions = prescriptions.length > 0
   const steps = [
     {
@@ -81,6 +84,7 @@ function PharmacistFullscreen({ prescription, onClose }) {
   }, [])
 
   const expiryStr = new Date(prescription.validUntil).toLocaleDateString('en-PK', { day: 'numeric', month: 'long', year: 'numeric' })
+  const site = publicSiteUrl()
 
   return (
     <div className="pharmacist-fullscreen">
@@ -90,8 +94,8 @@ function PharmacistFullscreen({ prescription, onClose }) {
       <div className="pharmacist-medicine">{prescription.medication}</div>
       <div className="pharmacist-expiry">Valid until: {expiryStr}</div>
       <div className="pharmacist-whatsapp">
-        Pharmacist: WhatsApp <strong>verify {prescription.code}</strong> to +923001234567<br />
-        Or enter code at: privyhealth.pk/verify
+        Pharmacist: WhatsApp <strong>verify {prescription.code}</strong> to {whatsappNumber()}<br />
+        Or enter code at: {site.replace(/^https?:\/\//, '')}/pharmacy/verify
       </div>
     </div>
   )
@@ -105,20 +109,32 @@ export default function PatientDashboard() {
   const [fullscreenRx, setFullscreenRx] = useState(null)
   const navigate = useNavigate()
 
+  const hasRecord = typeof localStorage !== 'undefined' && localStorage.getItem(RECORD_KEY) === '1'
+
   useEffect(() => {
-    fetch('/api/prescriptions?patientId=demo-patient')
-      .then(r => r.json())
-      .then(d => { setPrescriptions(Array.isArray(d) ? d : []); setLoading(false) })
-      .catch(() => setLoading(false))
-  }, [])
+    const demo = api('/api/prescriptions?patientId=demo-patient')
+    const urls = wallet
+      ? [demo, api(`/api/prescriptions?patientId=${encodeURIComponent(wallet.toLowerCase())}`)]
+      : [demo]
+    Promise.all(urls.map((u) => fetch(u).then((r) => r.json())))
+      .then((lists) => {
+        const byCode = new Map()
+        for (const d of lists) {
+          if (Array.isArray(d)) d.forEach((p) => byCode.set(p.code, p))
+        }
+        setPrescriptions([...byCode.values()])
+      })
+      .catch(() => setPrescriptions([]))
+      .finally(() => setLoading(false))
+  }, [wallet])
 
   const active = prescriptions.filter(p => !p.filled && !p.expired)
   const filled = prescriptions.filter(p => p.filled)
   const expired = prescriptions.filter(p => p.expired && !p.filled)
 
   function shareWhatsApp(p) {
-    const msg = encodeURIComponent(`My prescription code: ${p.code}\nMedicine: ${p.medication}\nIssued by: ${p.doctorName}\n\nPharmacist: send verify ${p.code}`)
-    window.open(`https://wa.me/?text=${msg}`, '_blank')
+    const msg = `My prescription code: ${p.code}\nMedicine: ${p.medication}\nIssued by: ${p.doctorName}\n\nPharmacist: send verify ${p.code}`
+    window.open(whatsappWaLink(msg), '_blank')
   }
 
   function printPrescription(p) {
@@ -149,7 +165,7 @@ export default function PatientDashboard() {
     <tr><td>Refills</td><td>${p.refillsAllowed} allowed</td></tr>
     ${p.patientAllergies?.length ? `<tr><td>Allergies</td><td style="color:#dc2626">⚠ ${p.patientAllergies.join(', ')}</td></tr>` : ''}
     </table>
-    <div class="verify-box"><strong>For pharmacists:</strong> Send <strong>verify ${p.code}</strong> to WhatsApp +923001234567</div>
+    <div class="verify-box"><strong>For pharmacists:</strong> Send <strong>verify ${p.code}</strong> to WhatsApp ${whatsappNumber()}</div>
     <div class="footer">Secured on WireFluid Network. DRAP Category: ${p.category} · Code: ${p.code}</div>
     <script>window.onload=()=>window.print()</script></body></html>`)
     win.document.close()
@@ -161,10 +177,13 @@ export default function PatientDashboard() {
 
       <h1 className={s.title}>Patient Dashboard</h1>
       <p className={s.desc}>
-        {wallet ? `Account: ${wallet.slice(0, 8)}...` : 'Demo patient: Ayesha Malik'} · Health records on WireFluid
+        {wallet
+          ? `Wallet-linked view · ${wallet.slice(0, 6)}…${wallet.slice(-4)} — demo data still includes shared PK codes`
+          : 'Demo patient: Ayesha Malik · disconnect wallet anytime to browse sample prescriptions'}
+        {' '}· WireFluid-ready workflow
       </p>
 
-      <PatientNextSteps prescriptions={prescriptions} />
+      <PatientNextSteps prescriptions={prescriptions} hasRecord={hasRecord} />
 
       <div className={s.statsRow}>
         <div className={s.stat}>

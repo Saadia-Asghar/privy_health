@@ -1,0 +1,2 @@
+import toast from "react-hot-toast"; import { parseError } from "./errors.js";
+export const notify={ success:(m,tx)=>toast.success(tx? `${m} • ${tx.slice(0,10)}...` : m), error:(e)=>{const p=parseError(e); toast.error(p.en);}, loading:(m)=>{const id=toast.loading(m); return ()=>toast.dismiss(id);}, info:(m)=>toast(m)};

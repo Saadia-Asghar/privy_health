@@ -1,0 +1,6 @@
+export async function uploadToIPFS(data, filename="data.json"){ const jwt=import.meta.env.VITE_PINATA_JWT; if(!jwt){ const cid="mock_"+Date.now(); localStorage.setItem(cid,JSON.stringify(data)); return cid; }
+const body=new FormData(); body.append("file", new Blob([JSON.stringify(data)],{type:"application/json"}), filename);
+const res=await fetch("https://api.pinata.cloud/pinning/pinFileToIPFS",{method:"POST",headers:{Authorization:"Bearer "+jwt},body}); const j=await res.json(); return j.IpfsHash; }
+export async function fetchFromIPFS(cid){ if(cid.startsWith("mock_")) return JSON.parse(localStorage.getItem(cid)||"null");
+const g=[`https://gateway.pinata.cloud/ipfs/${cid}`,`https://ipfs.io/ipfs/${cid}`,`https://cloudflare-ipfs.com/ipfs/${cid}`,`https://dweb.link/ipfs/${cid}`];
+for(const u of g){ try{ const ctl=new AbortController(); setTimeout(()=>ctl.abort(),8000); const r=await fetch(u,{signal:ctl.signal}); if(r.ok) return await r.json(); }catch{} } throw new Error("IPFS fetch failed"); }
