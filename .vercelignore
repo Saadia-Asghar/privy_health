@@ -1,0 +1,27 @@
+node_modules
+.git
+.github
+.cursor
+terminals
+agent-transcripts
+
+# local environment and secrets
+.env
+.env.local
+.env.*.local
+
+# local runtime/dev data
+data
+*.db
+*.sqlite
+*.sqlite3
+
+# blockchain/dev-only sources not needed by runtime deploy
+contracts
+test
+scripts
+src/artifacts
+
+# editor/system clutter
+.DS_Store
+Thumbs.db
